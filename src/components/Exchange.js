@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CurrencyInput from 'react-currency-input';
 import { getCurrencyRates } from '../actions';
+import { availableSymbols } from '../data';
 
 class Exchange extends Component {
 
@@ -20,25 +21,39 @@ class Exchange extends Component {
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
-        const { rates, error } = nextProps
+        const { rates, error, hasToCallApi } = nextProps
         if (error !== prevState.error) {
             return { error };
         }
         if (rates !== prevState.rates) {
             return { rates };
         }
+        if (hasToCallApi !== prevState.hasToCallApi) {
+            return { hasToCallApi };
+        }
         return null;
     }
 
     componentDidUpdate(prevProps) {
-        const { error, rates } = prevProps;
+        const { error, rates, base, desire, hasToCallApi,
+            getCurrencyRates, setCountdown } = prevProps;
+        const { floatValue } = this.state;
         const upcomingError = this.props.error;
         const upcomingRates = this.props.rates;
+        const hasToCallApiProp = this.props.hasToCallApi;
         if (error !== upcomingError) {
-            
+            // TODO Add function to display error
         }
         if (rates !== upcomingRates) {
             this.calculateExchange(upcomingRates);
+        }
+        if (hasToCallApi !== hasToCallApiProp 
+            && hasToCallApiProp 
+            && base === 'USD' 
+            && desire === 'EUR' 
+            && floatValue > 0) {
+            getCurrencyRates({ base, symbols: desire });
+            setCountdown();
         }
     }
 
@@ -51,8 +66,9 @@ class Exchange extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        const { getCurrencyRates, base, desire } = this.props;        
+        const { getCurrencyRates, base, desire, setCountdown } = this.props;
         getCurrencyRates({ base, symbols: desire });
+        setCountdown();
     }
 
     calculateExchange(upcomingRates) {
@@ -78,18 +94,21 @@ class Exchange extends Component {
                                     decimalSeparator="." 
                                     thousandSeparator="," 
                                     className="form-control"
+                                    prefix={availableSymbols[base]}
                                     placeholder={base}
                                     value={baseCurrency}
                                     onChangeEvent={this.handleChange}
                                 />
                             </div>
                             <div className="form-group col-sm-12 col-md-6">
-                                <input 
-                                    type="text" 
-                                    className="form-control" 
-                                    id="symbol" 
+                                <CurrencyInput 
+                                    decimalSeparator="." 
+                                    thousandSeparator="," 
+                                    className="form-control"
+                                    prefix={availableSymbols[desire]}
                                     placeholder={desire}
                                     value={desireCurrency}
+                                    onChangeEvent={this.handleChange}
                                     readOnly
                                 />
                             </div>
@@ -99,7 +118,7 @@ class Exchange extends Component {
                                 type="submit" 
                                 className="btn btn-primary"
                                 disabled={
-                                    (base === 'USD' && desire === 'EUR' && floatValue !== 0) ? false : true 
+                                    (base === 'USD' && desire === 'EUR' && floatValue > 0) ? false : true 
                                 }
                                 onClick={this.handleSubmit}
                             >
