@@ -1,26 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import { Route, Switch, Router } from 'react-router-dom';
+
+import reducers from './reducers';
+import sagas from './sagas';
+import history from './helpers/history';
+import Dashboard from './containers/Dashboard';
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(reducers, {}, composeEnhancers(applyMiddleware(sagaMiddleware)));
+sagaMiddleware.run(sagas)
 
 class App extends Component {
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Provider store={store}>
+        <Router history={history}>
+          <Switch>
+            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/dashboard" component={Dashboard} />
+          </Switch>
+        </Router>
+      </Provider>  
     );
   }
 }
