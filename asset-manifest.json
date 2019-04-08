@@ -1,0 +1,16 @@
+{
+  "main.css": "/exchange-app/static/css/main.b7a6f137.chunk.css",
+  "main.js": "/exchange-app/static/js/main.83eea0e3.chunk.js",
+  "main.js.map": "/exchange-app/static/js/main.83eea0e3.chunk.js.map",
+  "runtime~main.js": "/exchange-app/static/js/runtime~main.80d10873.js",
+  "runtime~main.js.map": "/exchange-app/static/js/runtime~main.80d10873.js.map",
+  "static/css/2.de4c5ade.chunk.css": "/exchange-app/static/css/2.de4c5ade.chunk.css",
+  "static/js/2.b7214964.chunk.js": "/exchange-app/static/js/2.b7214964.chunk.js",
+  "static/js/2.b7214964.chunk.js.map": "/exchange-app/static/js/2.b7214964.chunk.js.map",
+  "index.html": "/exchange-app/index.html",
+  "precache-manifest.a6e42b8379c8e2c7652592d95fb13b0f.js": "/exchange-app/precache-manifest.a6e42b8379c8e2c7652592d95fb13b0f.js",
+  "service-worker.js": "/exchange-app/service-worker.js",
+  "static/css/2.de4c5ade.chunk.css.map": "/exchange-app/static/css/2.de4c5ade.chunk.css.map",
+  "static/css/main.b7a6f137.chunk.css.map": "/exchange-app/static/css/main.b7a6f137.chunk.css.map",
+  "static/media/logo.svg": "/exchange-app/static/media/logo.5d5d9eef.svg"
+}
