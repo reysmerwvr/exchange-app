@@ -1,4 +1,45 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Exchange Application
+
+Exchange Application. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Requirements
+
+  - React >= 16.0.7
+  - npm >= 3.0.0
+
+## Version
+
+1.0.0
+
+## Installation
+
+Download zip file and extract it [latest pre-built release](https://github.com/reysmerwvr/exchange-app). Or clone the repository and cd into it.
+
+Weather-App uses a number of open source projects to work properly:
+
+* [React] - React
+* [Bootstrap] - Bootstrap
+* [Axios] - Axios
+* [Lodash] - Lodash
+
+Install the dependencies and start the server.
+
+```sh
+cd exchange-app
+npm install
+cp .env.example .env
+```
+
+If you don't have `.env` file you can use the example one. Just rename `.env.example` to `.env`. Enter your configuration here.
+
+## Run
+
+Run the following command to start the HTTP Server.
+
+```js
+npm start
+```
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Available Scripts
 
@@ -42,72 +83,6 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-
-# Exchange Application
-
-Exchange Application.
-
-## Requirements
-
-  - React >= 16.0.7
-  - npm >= 3.0.0
-
-## Version
-
-1.0.0
-
-## Installation
-
-Download zip file and extract it [latest pre-built release](https://github.com/reysmerwvr/exchange-app). Or clone the repository and cd into it.
-
-Weather-App uses a number of open source projects to work properly:
-
-* [React] - React
-* [Bootstrap] - Bootstrap
-* [Axios] - Axios
-* [Lodash] - Lodash
-
-Install the dependencies and start the server.
-
-```sh
-cd exchange-app
-npm install
-cp .env.example .env
-```
-
-If you don't have `.env` file you can use the example one. Just rename `.env.example` to `.env`. Enter your configuration here.
-
-## Run
-
-Run the following command to start the HTTP Server.
-
-```js
-npm start
-```
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does 
 its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
