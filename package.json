@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://reysmerwvr.github.io/exchange-app",
   "dependencies": {
-    "axios": "^1.6.0",
+    "axios": "^1.7.4",
     "bootstrap": "^4.3.1",
     "dotenv": "^7.0.0",
     "gh-pages": "^5.0.0",
